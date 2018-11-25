@@ -39,11 +39,15 @@ $(document).ready(function() {
     var topic = $("#aquatic-input")
       .val()
       .trim();
-    // The movie from the textbox is then added to our array
-    topics.push(topic);
+    // The new button from the textbox is then added to our array
+    if (topic === "") {
+    } else {
+      topics.push(topic);
+    }
 
     // calling renderButtons which handles the processing of our movie array
     renderButton();
+    $("#aquatic-input").val("");
   });
   // Calling the renderButtons function at least once to display the initial list of movies
 
@@ -67,6 +71,7 @@ $(document).ready(function() {
       var results = response.data;
       for (var i = 0; i < results.length; i++) {
         var gifDiv = $("<div>");
+        gifDiv.attr("class", "img-div");
         var rating = results[i].rating;
         var p = $("<p>").text("Rating: " + rating);
         var aquaticImages = $("<img>");

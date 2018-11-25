@@ -1,0 +1,20 @@
+#textInput {
+  float: right;
+  font-family: "Arial", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 20px;
+  margin-top: 25px;
+}
+img {
+  margin-top: 30px;
+}
+.img-div {
+  display: inline-block;
+  padding: 20px;
+}
+.btn {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+body {
+  background-image: url(../images/mooning.png);
+}
