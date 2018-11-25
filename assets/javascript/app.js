@@ -55,7 +55,8 @@ $(document).ready(function() {
 
   //$("button").on("click", function() {
   $(document).on("click", "button", function() {
-    $("#gifs-appear-here").empty();
+    //this will clear the display before displaying new GIF
+    //$("#gifs-appear-here").empty();
 
     var aquatic = $(this).attr("data-name");
     console.log(aquatic);
@@ -72,8 +73,14 @@ $(document).ready(function() {
       for (var i = 0; i < results.length; i++) {
         var gifDiv = $("<div>");
         gifDiv.attr("class", "img-div");
+        var dBtn = $("<input>");
+        dBtn.attr("value", "Download");
+        dBtn.attr("class", "btn btn-dark downloadbtn");
+        dBtn.attr("type", "submit");
         var rating = results[i].rating;
         var p = $("<p>").text("Rating: " + rating);
+        var title = results[i].title;
+        var t = $("<p>").text("Title: " + title);
         var aquaticImages = $("<img>");
         aquaticImages.attr("src", results[i].images.fixed_height_still.url);
         aquaticImages.attr(
@@ -83,7 +90,9 @@ $(document).ready(function() {
         aquaticImages.attr("data-animate", results[i].images.fixed_height.url);
         aquaticImages.attr("data-state", "still");
         aquaticImages.attr("class", "gif");
+        gifDiv.prepend(dBtn);
         gifDiv.prepend(p);
+        gifDiv.prepend(t);
         gifDiv.prepend(aquaticImages);
         $("#gifs-appear-here").prepend(gifDiv);
       }
